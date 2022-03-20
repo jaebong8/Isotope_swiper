@@ -1,0 +1,206 @@
+@charset 'UTF-8';
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap");
+$BebasNeue: "Bebas Neue";
+$Staatliches: "Staatliches";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #111;
+}
+header {
+  width: 100%;
+  height: 70px;
+  background-color: #111;
+  .inner {
+    width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    h1 {
+      font-family: $Staatliches;
+      letter-spacing: 4px;
+    }
+    .fonts {
+      i {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+main {
+  width: 1180px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  ul {
+    float: right;
+    position: relative;
+    padding: 20px;
+    li {
+      float: left;
+      width: 100px;
+      height: 26px;
+      margin-right: 20px;
+      &:hover {
+        background: #f0831d;
+      }
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font: 16px/26px $BebasNeue;
+        letter-spacing: 3px;
+        text-align: center;
+      }
+    }
+  }
+  section {
+    width: 100%;
+    float: left;
+
+    article {
+      float: left;
+      width: 25%;
+      background-color: #fff;
+      padding: 5px;
+      background-color: #111;
+      cursor: pointer;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+        position: relative;
+      }
+      &::after {
+        width: 100%;
+        height: 25%;
+        content: "VIEW";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        background-color: #f0831d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $BebasNeue;
+        letter-spacing: 3px;
+        font-weight: bold;
+        transition: 0.5s;
+        opacity: 0;
+        z-index: 2;
+        color: #fff;
+      }
+      &::before {
+        width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0.5;
+      }
+      &:hover {
+        &::after {
+          bottom: 0;
+          opacity: 1;
+        }
+        &::before {
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+aside {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 10vw;
+  height: 10vh;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  z-index: -5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: 0.5s;
+  .swiper {
+    width: 70%;
+    height: 70%;
+    .swiper-slide {
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &.mySwiper2 {
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &.mySwiper {
+      height: 20%;
+      padding: 10px 0;
+
+      .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+      }
+      .swiper-slide-thumb-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    font: bold 18px/1 "arial";
+    padding: 5px;
+    background-color: #f0831d;
+    color: #fff;
+    cursor: pointer;
+  }
+}
